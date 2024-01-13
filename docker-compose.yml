@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  fronEnd:
+    build:
+      context: .
+      dockerfile: .                     
+    image: ${DOCKER_IMAGE_NAME:-aliFronrEndImage}:${TAG:-latest}
+    container_name: ${DOCKER_CONTAINER_NAME:-aliFronrEndContainer}
+    ports:
+      - ${APP_PORT:-9191}:80    
+    restart: unless-stopped
+
