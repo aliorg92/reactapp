@@ -1,26 +1,14 @@
 pipeline {
     agent any
-    stages{
-        stage("checkout"){
-            steps{
-                checkout scm
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker-compose up -d'
             }
         }
-        stage("Test"){
-            steps{
-                sh 'sudo apt install npm'
-                sh 'npm test'
-            }
-        }
-        stage("Build"){
-            steps{
-                sh 'npm run build'
-            }
-        }
-        stage("Build Image"){
-            steps{
-                sh 'docker build -t react-web-app:1.0 .'
-            }
+        stage('Pushing Image'){
+            
         }
     }
 }

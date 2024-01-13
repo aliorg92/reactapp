@@ -1,13 +1,13 @@
 version: "3"
 
 services:
-  fronEnd:
+  fronend:
     build:
       context: .
-      dockerfile: .                     
-    image: ${DOCKER_IMAGE_NAME:-aliFronrEndImage}:${TAG:-latest}
+      dockerfile: Dockerfile                     
+    image: ${DOCKER_IMAGE_NAME:-alifronrfndimage}:${TAG:-latest}
     container_name: ${DOCKER_CONTAINER_NAME:-aliFronrEndContainer}
     ports:
-      - ${APP_PORT:-9191}:80    
+      - ${APP_PORT:-3000}:3000    
     restart: unless-stopped
 
