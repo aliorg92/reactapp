@@ -1,5 +1,6 @@
 FROM node:latest
-WORKDIR /reactapp
-ADD ./src .
+WORKDIR /app
+ADD ./src /app
 RUN npm install
-CMD ["node", "index.js"]
+EXPOSE 3000
+CMD npm start
